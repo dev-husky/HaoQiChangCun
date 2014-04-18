@@ -52,25 +52,23 @@ HTMLActuator.prototype.clearContainer = function (container) {
 };
 
 HTMLActuator.prototype.addTile = function (tile) {
-  var text=new Array(18);
+  var text=new Array(15);
    text[0] = " ";
-  text[1] = "雁虞";
-  text[2] = "剑茗";
-  text[3] = "任侠";
-  text[4] = "荻魂";
-  text[5] = "缘风";
-  text[6] = "蜀风";
-  text[7] = "蚩灵";
-  text[8] = "南皇";
-  text[9] = "烛天";
-  text[10] = "破军";
-  text[11] = "狼烟";
-  text[12] = "靖世";
-  text[13] = "定国";
-  text[14] = "破虏";
-  text[15] = "飞仙<br>玄晶";
-  text[16] = "化玉<br>玄晶";
-  text[17] = "沉沙<br>玄晶";
+  text[1] = "<div style='padding-top:30px;'>义魁</div>";
+  text[2] = "<div style='padding-top:30px;'>扶正</div>";
+  text[3] = "<div style='padding-top:30px;'>诛邪</div>";
+  text[4] = "<div style='padding-top:30px;'>落雁客</div>";
+  text[5] = "<div style='padding-top:30px;'>执令使</div>";
+  text[6] = "<div style='padding-top:30px;'>天行君</div>";
+  text[7] = "<div style='padding-top:10px;'>罚恶<br>右使</div>";
+  text[8] = "<div style='padding-top:10px;'>赏善<br>左使</div>";
+  text[9] = "<div style='padding-top:10px;'>七曜<br>总判</div>";
+  text[10] = "<div style='padding-top:10px;'>匡正<br>太师</div>";
+  text[11] = "<div style='padding-top:10px;'>明威<br>天相</div>";
+  text[12] = "<div style='padding-top:10px;'>辅道<br>天丞</div>";
+  text[13] = "<div style='padding-top:10px;'>九州<br>大侠</div>";
+  text[14] = "<div style='padding-top:10px;'>武林<br>天骄</div>";
+
   var self = this;
   var text2 = function (n) { var r = 0; while (n > 1) r++, n >>= 1; return r; }
 
@@ -82,7 +80,7 @@ HTMLActuator.prototype.addTile = function (tile) {
   // We can't use classlist because it somehow glitches when replacing classes
   var classes = ["tile", "tile-" + tile.value, positionClass];
 
-  if (tile.value > 131072) classes.push("tile-super");
+  if (tile.value > 16384) classes.push("tile-super");
 
   this.applyClasses(wrapper, classes);
 
@@ -150,27 +148,24 @@ HTMLActuator.prototype.updateBestScore = function (bestScore) {
 };
 
 HTMLActuator.prototype.message = function (won) {
-  var mytxt=new Array(14);
-  mytxt[0]="居然连70年代你都玩不过去";
-  mytxt[1]="荻魂套萝莉穿着可萌了";
-  mytxt[2]="马上要开80了吧……";
-  mytxt[3]="蜀风是最强的套装！不服来辩！";
-  mytxt[4]="→ →女神说她最喜欢蚩灵了";
-  mytxt[5]="高呼吾名！阿萨辛！";
-  mytxt[6]="你死在雷神的扫射里";
-  mytxt[7]="蛋总你敢下个鸡蛋么！";
-  mytxt[8]="蜀风2代，只要998！";
-  mytxt[9]="战宝不出大铁后，黑CD都没动力了";
-  mytxt[10]="尼玛大明宫还没毕业_(:3」∠)_";
-  mytxt[11]="GWW说新版本又开新本了……";
-  mytxt[12]="70的大铁我没有，但我有小铁";
-  mytxt[13]="_(:3」∠)_摸都没摸过";
+  var mytxt=new Array(10);
+  mytxt[0]="从此再也没人有听过这个人的故事";
+  mytxt[1]="从此再也没人有听过这个人的故事";
+  mytxt[2]="从此再也没人有听过这个人的故事";
+  mytxt[3]="从此再也没人有听过这个人的故事";
+  mytxt[4]="从此再也没人有听过这个人的故事";
+  mytxt[5]="从此再也没人有听过这个人的故事";
+  mytxt[6]="从此再也没人有听过这个人的故事";
+  mytxt[7]="从此再也没人有听过这个人的故事";
+  mytxt[8]="从此再也没人有听过这个人的故事";
+  mytxt[9]="从此再也没人有听过这个人的故事";
+ 
 
 
 
   var text3 = function (m) { var r = 0; while (m > 1) r++, m >>= 1; return r; }
   var type    = won ? "game-won" : "game-over";
-  var message = won ? "你摸出了<strong>沉沙玄晶</strong>恭喜你！" : mytxt[text3(maxscore)-3];
+  var message = won ? "你成为了<strong>武林天骄</strong>恭喜你！" : mytxt[text3(maxscore)-3];
 
   if (typeof ga !== "undefined") {
     ga("send", "event", "game", "end", type, this.score);
